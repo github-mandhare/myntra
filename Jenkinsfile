@@ -9,7 +9,7 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/harry/appfiles/apache-tomcat-9.0.86/webapps/mvn install'
+			  sh '/home/harry/appfiles/apache-tomcat-9.0.86/webapps/mvninstall'
 	                 }}
 		stage('Deployment'){
 		    steps {
