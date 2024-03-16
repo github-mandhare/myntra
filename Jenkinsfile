@@ -9,7 +9,7 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh ''/home/harry/appfiles/apache-tomcat-9.0.86/bin/mvn install'
+			  sh '/home/harry/appfiles/apache-tomcat-9.0.86/bin/mvn install'
 	                 }}
 		stage('Deployment'){
 		    steps {
