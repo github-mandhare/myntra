@@ -1,5 +1,7 @@
 pipeline {
-	agent any
+	agent{
+	label 'Mens-slave'
+	}
 	stages {
 	    stage('Checkout') {
 	        steps {
@@ -7,22 +9,10 @@ pipeline {
 		      }}
 		stage('Build') {
 	           steps {
-			  sh '/home/aishu/extracted/apache-tomcat-9.0.86/bin/mvn install
+			  sh '/home/guru/slaveDD2/apache-maven-3.9.0/bin/mvn install'
 	                 }}
 		stage('Deployment'){
 		    steps {
-			script {
-			 if (env.BRANCH_NAME == 'master') 
-                        {
-                        echo 'Hello from main branch'
-                        }
-                    	if (env.BRANCH_NAME == 'null') 
-                        {
-                        echo 'Hello from null branch'
-                        }
-                    	else {
-                        sh "echo 'Hello from ${env.BRANCH_NAME} branch!'"
-                        }
-                    
-			}}}}	
-}
+			sh 'cp target/flipkart.war /home/swapnil/Documents/DevOps-Software/apache-tomcat-9.0.79/webapps'
+			}}	
+}}
